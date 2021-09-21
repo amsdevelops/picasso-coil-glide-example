@@ -33,25 +33,25 @@ class MainActivity : AppCompatActivity() {
         val catUrl = "https://cdn22.img.ria.ru/images/07e5/06/18/1738448523_0:21:864:669_1920x0_80_0_0_9920bbedf3cb1a14b1358e0677d01106.jpg"
         val gifUrl = "https://upload.wikimedia.org/wikipedia/ru/archive/6/6b/20210505175821%21NyanCat.gif"
         //Picasso
-        Picasso.get()
-            .load(gifUrl)
-            .placeholder(R.drawable.ic_launcher_foreground)
-            .resize(250, 250)
-            .centerCrop()
+//        Picasso.get()
+//            .load(gifUrl)
+//            .placeholder(R.drawable.ic_launcher_foreground)
+//            .resize(250, 250)
+//            .centerCrop()
 //            .transform(object : Transformation {
 //                override fun transform(source: Bitmap?): Bitmap {
-//                    source.
+//
 //                }
 //
 //                override fun key(): String = "key"
 //
 //            })
-            .into(binding.image)
+//            .into(binding.image)
 
         //Coil
         //Coil is an acronym for: Coroutine Image Loader.
         val request = ImageRequest.Builder(this)
-            .data(catUrl)
+            .data(gifUrl)
             .crossfade(true)
 //            .transformations(BlurTransformation(this, 2f, 6f))
 //            .transformations(CircleCropTransformation())
@@ -72,25 +72,23 @@ class MainActivity : AppCompatActivity() {
 
         imageLoader.enqueue(request)
 
-        binding.image.load(gifUrl) {
-            crossfade(1000)
-            placeholder(R.drawable.ic_launcher_foreground)
-            transformations(CircleCropTransformation())
-        }
+//        binding.image.load(gifUrl) {
+//            crossfade(1000)
+//            placeholder(R.drawable.ic_launcher_foreground)
+//            transformations(CircleCropTransformation())
+//        }
 
         //Glide
         //lifecycle aware onStart onStop
         //Restart on connection reestablished
-        Glide.with(this)
-            .load(gifUrl)
-            .centerCrop()
-            .transition(DrawableTransitionOptions.withCrossFade(2000))
+//        Glide.with(this)
+//            .load(gifUrl)
+//            .centerCrop()
+//            .transition(DrawableTransitionOptions.withCrossFade(2000))
 //            .transform(CircleCrop())
-            .transform(MultiTransformation(CenterCrop(), RoundedCorners(20)))
-            .transform()
-            .placeholder(R.drawable.ic_launcher_foreground)
-            .into(binding.image)
-
-
+//            .transform(MultiTransformation(CenterCrop(), RoundedCorners(20)))
+//            .transform()
+//            .placeholder(R.drawable.ic_launcher_foreground)
+//            .into(binding.image)
     }
 }
